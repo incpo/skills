@@ -9,7 +9,7 @@ description: "Show the user's assigned Linear tasks for a specific project. Use 
 
 If the user specified a project (e.g. `/mytasks Mobile App`), call `mcp__claude_ai_Linear__list_issues` directly with `assignee: "me"`, `project: <name>`, `includeArchived: false`.
 
-Otherwise call `mcp__claude_ai_Linear__list_projects` and present a numbered list. Wait for user to pick, then fetch issues.
+Otherwise call `mcp__claude_ai_Linear__list_projects`, then use the `AskUserQuestion` tool to let the user pick interactively. Use the project names as option labels and summaries as descriptions. If there are more than 4 projects, show the first 4 — the user can type a custom name via "Other".
 
 If any MCP call fails with an auth error:
 1. Run `open "https://claude.ai/settings/integrations"` to open browser
