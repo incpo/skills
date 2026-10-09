@@ -1,6 +1,6 @@
 ---
 name: task
-description: "Complete a specific Linear issue end-to-end, then manage its Linear status. ONLY use this skill when the user EXPLICITLY invokes it by mention — i.e. they type `/task ENG-305 ...`, or write an explicit imperative naming a Linear issue ID such as 'go complete ENG-305 ...', 'finish ENG-12 ...', 'do PROJ-441 ...'. The defining signal is an explicit Linear issue identifier (LETTERS-NUMBERS) the user is handing you to work on now. Do NOT trigger this skill for general questions about tasks, 'what am I working on', listing issues, or any request that does not explicitly hand you one issue ID to complete (that is the `mytasks` skill's job, not this one). This skill mutates real Linear issue statuses, so it must never fire speculatively."
+description: "Complete a specific Linear issue end-to-end, then manage its Linear status. ONLY use this skill when the user EXPLICITLY invokes it by mention — i.e. they type `/task ENG-305 ...`, or write an explicit imperative naming a Linear issue ID such as 'go complete ENG-305 ...', 'finish ENG-12 ...', 'do PROJ-441 ...'. The defining signal is an explicit Linear issue identifier (LETTERS-NUMBERS) the user is handing you to work on now. Do NOT trigger this skill for general questions about tasks, 'what am I working on', listing issues, or any request that does not explicitly hand you one issue ID to complete. This skill mutates real Linear issue statuses, so it must never fire speculatively."
 ---
 
 # Complete a Linear issue (`/task`)
