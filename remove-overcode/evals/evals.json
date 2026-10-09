@@ -1,0 +1,42 @@
+{
+  "skill_name": "remove-overcode",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review src/services/company-service.ts for overcode. It has a createCompanyService function with an optional execute callback that defaults to db.execute, but the factory has one caller and no tests replace execute. It also has requireCompanyId, a runtime validator used once, and three helpers that only call String(value), array.map, and response.json. Give me a ranked review; do not edit.",
+      "expected_output": "Ranks the unused injection/factory and trivial pass-through helpers as cleanup candidates while explicitly keeping the single-use runtime ID validator because it enforces a domain invariant.",
+      "files": [],
+      "expectations": [
+        "Identifies the unused executor injection or parameterless/singleton factory as overcode.",
+        "Identifies obvious pass-through helpers as candidates for inlining.",
+        "Does not recommend removing the runtime ID validator merely because it has one consumer.",
+        "Reports findings without claiming to have edited files."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Simplify this TypeScript payment module. PaymentService receives a PaymentGateway interface. Production passes StripeGateway, unit tests pass FakeGateway, and a local sandbox passes LoggingGateway. There is also a createPaymentService() wrapper with no arguments that only returns new PaymentService(new StripeGateway()), plus a toCents helper that enforces rounding and rejects negative values. Tell me exactly what should be removed and what should stay.",
+      "expected_output": "Removes only the no-argument convenience wrapper if it has no useful consumer, while retaining gateway injection and the toCents domain helper.",
+      "files": [],
+      "expectations": [
+        "Keeps PaymentGateway dependency injection because multiple meaningful implementations use it.",
+        "Treats the no-argument wrapper as removable only if it has no contract or consumer value.",
+        "Keeps toCents because it enforces rounding and a non-negative money invariant.",
+        "Explains decisions in terms of present requirements rather than blanket anti-abstraction rules."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Clean up api/report.ts without changing behavior. The query selects NULL::text AS subtitle, the return object converts row.subtitle to null, getRows(query) only returns db.execute(query), ensureReportId validates the public ID format, and csvEscape is substantial RFC-style escaping used only by exportCsv. Describe the edits and validation you would perform.",
+      "expected_output": "Removes the constant SQL field and pass-through database wrapper, preserves the ID validator and substantive CSV escaping helper near its sole consumer, and proposes focused validation.",
+      "files": [],
+      "expectations": [
+        "Removes the constant NULL query field and returns subtitle as null directly.",
+        "Removes or inlines the pass-through getRows database wrapper.",
+        "Keeps ensureReportId as an input-boundary invariant.",
+        "Keeps csvEscape despite one consumer because its logic is substantial and meaningful.",
+        "Includes focused behavior-preserving validation and diff inspection."
+      ]
+    }
+  ]
+}

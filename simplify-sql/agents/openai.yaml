@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simplify SQL"
+  short_description: "Refactor tangled SQL without changing results"
+  default_prompt: "Use $simplify-sql to refactor this SQL into clear, efficient code and verify equivalence."
