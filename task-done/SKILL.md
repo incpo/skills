@@ -1,6 +1,6 @@
 ---
 name: task-done
-description: "Log already-completed work as a Linear issue in the Linear project matching the current workspace, assigned to the authenticated user and marked Done. Use ONLY when the user explicitly invokes it — they type `/task-done ...`, or write an explicit imperative like 'log this in linear', 'create a linear ticket for what I did', 'track this work in linear', 'we finished X, put it in linear as done'. The defining signal is the user handing you finished work to record after the fact. Do NOT trigger for planning new work, listing tasks ('what am I working on' → that's `mytasks`), or completing an existing issue handed to you by ID ('finish ENG-305' → that's `task`). This skill creates/mutates real Linear issues, so it must never fire speculatively."
+description: "Log already-completed work as a Linear issue in the Linear project matching the current workspace, assigned to the authenticated user and marked Done. Use ONLY when the user explicitly invokes it — they type `/task-done ...`, or write an explicit imperative like 'log this in linear', 'create a linear ticket for what I did', 'track this work in linear', 'we finished X, put it in linear as done'. The defining signal is the user handing you finished work to record after the fact. Do NOT trigger for planning new work, listing tasks, or completing an existing issue handed to you by ID ('finish ENG-305' → that's `task`). This skill creates/mutates real Linear issues, so it must never fire speculatively."
 ---
 
 # Log completed work to Linear (`/task-done`)
