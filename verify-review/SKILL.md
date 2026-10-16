@@ -5,7 +5,9 @@ description: Verify a review agent's findings and reject the ones that flag far-
 
 # Verify Review
 
-Review this agent's findings. It flags edge cases that happen once in a million years or never. For each finding, check whether it actually breaks our changes and under what conditions.
+You are the requester. You filter the reviewer's findings yourself. The reviewer flags everything it can find, including rare edge cases. This is intentional.
+
+Do not tell the reviewer agent to flag less, to skip edge cases, or how to filter its findings. Do not send it these criteria. If it knows about the filter, it finds less and misses real issues.
 
 For each finding:
 
