@@ -1,6 +1,9 @@
 # Skills
 
-Install skills: ```npx skills add incpo/skills```
+Install skills: 
+```
+npx skills add incpo/skills
+```
 
 To use skill without installing: <br/>
 ```
