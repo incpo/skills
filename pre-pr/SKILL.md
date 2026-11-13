@@ -1,15 +1,15 @@
 ---
 name: pre-pr
-description: Run the pre-PR pass on the workspace changes. Unslop the prose, start a GPT review session in Conductor with Conductor's review prompt, verify its findings with verify-review, fix the approved ones, and resolve the rejected ones. Use for /pre-pr, "pre-pr", "review before PR", or before opening a PR.
+description: Run the pre-PR pass on the workspace changes. Run /deslop and /no-comments, start a GPT review session in Conductor with Conductor's review prompt, verify its findings with verify-review, fix the approved ones, and resolve the rejected ones. Use for /pre-pr, "pre-pr", "review before PR", or before opening a PR.
 ---
 
 # Pre-PR
 
 Do the steps in order. Do not ask the user between steps.
 
-## 1. Unslop
+## 1. Clean up
 
-Apply the unslop skill to the prose this branch adds or changes. Prose means Markdown files, code comments, docstrings, OpenAPI and tool descriptions, and error messages. The branch's changes are its commits against the target branch, its uncommitted changes, and its untracked files. Edit only lines the branch touched. Do not change code behavior.
+Start two subagents in parallel: one runs /deslop, the other runs /no-comments. Wait for both before step 2. Do not clean up yourself.
 
 ## 2. Cross-review
 
