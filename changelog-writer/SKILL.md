@@ -125,12 +125,20 @@ Other big improvements:
 9. **Keep internals out**: no PR numbers, ticket IDs, class or service
    names, or analytics vendors. Use the user's words for features, not the
    team's code names.
-10. **State security fixes plainly**, without exploit details: "Agents in
+10. **Link the docs instead of spelling out technical details.** Do not
+    write API endpoints, request formats, CLI flags, or config schemas in a
+    bullet. Put a docs link on the words that name the feature: "Archive
+    workspaces [through the API](<docs link>)." Not "Added
+    `POST /v1/workspaces/:id/archive`." If there is no docs page yet, ask
+    for the link or name the feature without the technical detail. Breaking
+    changes are the exception: name the exact endpoint, flag, or key that
+    changed, and link the migration docs.
+11. **State security fixes plainly**, without exploit details: "Agents in
     repositories hosted outside github.com no longer receive your Conductor
     GitHub credentials."
-11. **Removals say what replaces them**: "Removed the Team page. Teammate
+12. **Removals say what replaces them**: "Removed the Team page. Teammate
     profiles replace it."
-12. **Credit outside help** inline: "(thanks [@handle](link))".
+13. **Credit outside help** inline: "(thanks [@handle](link))".
 
 ## Voice
 
@@ -162,6 +170,8 @@ Read the one that matches the release:
   action, or symptom.
 - Each fix names the symptom. None says only "Fixed an issue" or "Fixed bugs".
 - No PR numbers, internal names, or invented behavior.
+- Endpoints, flags, and config details are behind a docs link on the
+  feature's name, not written out.
 - UI names, settings paths, and shortcuts match the product.
 - Anything users must act on is in the Heads-up or Breaking changes, with
   what to do instead, not hidden in Misc.
