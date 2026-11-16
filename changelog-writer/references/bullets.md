@@ -72,6 +72,21 @@ menus shifting while opening, and dropdown menus making the window scroll."
   2.1.300, Codex to 0.162.1, Cursor Agent to 1.0.37, and OpenCode to
   2.0.29."
 
+## Docs links
+
+When a change has docs, link the words that name the feature. Do not copy
+the endpoint, request body, flags, or config schema into the bullet. The
+reader learns what they can do, and the docs hold the details.
+
+| Instead of | Write |
+|---|---|
+| "Added `POST /v1/workspaces/:id/archive` endpoint." | "Archive workspaces [through the API](<docs link>)." |
+| "New `--base <branch>` and `--draft` flags for `pr create`." | "[Create draft PRs against any branch](<docs link>) from the CLI." |
+
+Short names users type, like a file name or one command, can stay in
+backticks. In Breaking changes, name the exact endpoint, flag, or key that
+changed, and link the migration docs.
+
 ## Credits
 
 - Inline: "Add a button to copy rendered tables as markdown (thanks
