@@ -1,6 +1,6 @@
 ---
 name: pre-pr
-description: Run the pre-PR pass on the workspace changes. Run /deslop and /no-comments, start a GPT review session in Conductor with Conductor's review prompt, verify its findings with verify-review, fix the approved ones, and resolve the rejected ones. Use for /pre-pr, "pre-pr", "review before PR", or before opening a PR.
+description: Use before opening a pull request, when the user asks for a pre-PR review of workspace changes, or when they invoke /pre-pr.
 ---
 
 # Pre-PR
@@ -9,7 +9,7 @@ Do the steps in order. Do not ask the user between steps.
 
 ## 1. Clean up
 
-Start two subagents in parallel: one runs /deslop, the other runs /no-comments. Wait for both before step 2. Do not clean up yourself.
+Start three subagents in parallel: one runs /deslop, one runs /no-comments, and one runs /remove-overcode in cleanup mode on the workspace changes. Wait for all three before step 2. Do not clean up yourself.
 
 ## 2. Cross-review
 
